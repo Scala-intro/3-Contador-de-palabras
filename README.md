@@ -25,8 +25,24 @@ val texto = sc.parallelize(frases)
 - Ahora toca contar palabras
     
     1º  pasamos la líneas a minúsculas
+    ~~~scala
+    toLowerCase
+    ~~~
     2º dividimos las frases en palabras con una expresión regular
+    ~~~scala
+    split("\\W+")
+    ~~~
     3º y el resultado lo presentamos en una tupla, (palbara, 1)
-~~~scala
-val numPalabras = texto.flatMap(line => line.toLowerCase.split("\\W+")).map(pal => (pal ,1))
-~~~
+    ~~~scala
+    map(pal => (pal ,1))
+    ~~~
+    4º Hacemos un conteo clave/valor con reduceByKey
+    ~~~scala
+    reduceByKey(_+_)
+    ~~~
+
+    ~~~scala
+    val numPalabras = texto.flatMap(line => line.toLowerCase.split("\\W+")).map(pal => (pal ,1)).reduceByKey(_+_)
+    ~~~
+    5º Obtenemos un RDD (Resilient Distributed Dataset) al cual le podemos hacer operaciones.
+    
