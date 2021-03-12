@@ -1,6 +1,5 @@
 # 3 Contador de palabras
-
-
+## Versión 1 
 Vamos a empezar a hacer un ejercicio, un contador de palabras.
 
 - Lo primero es ejecutar el contexto de spark
@@ -45,4 +44,42 @@ val texto = sc.parallelize(frases)
     val numPalabras = texto.flatMap(line => line.toLowerCase.split("\\W+")).map(pal => (pal ,1)).reduceByKey(_+_)
     ~~~
     5º Obtenemos un RDD (Resilient Distributed Dataset) al cual le podemos hacer operaciones.
+
+    ~~~scala
+    numPalabras.collect().foreach(println(_))
+    ~~~
+    ![scala](./images/002.png)
+
+
+## Versión 2 
+
+Vamos a utilizar un dataset localizado en (https://tinyurl.com/rja-901) o (https://github.com/jalbacar/github-demo/blob/master/quijote.txt.zip)
+
+1º Vamos a importar algunas librerías
+~~~
+import org.apache.spark._
+import org.apache.spark.SparkContext._
+import org.apache.log4j._
+~~~
+
+2º Creamos la función `procesarQuijote`
+~~~scala
+def procesarQuijote()
+{
+    // RDD
+    val input = sc.textFile("file:///home/patricia/Documentos/scala/contador_palabras/data/quijote.txt")
     
+    val palabras = input.flatMap(linea => linea.split("\\W+"))
+    
+    val sumPalabras = palabras.countByValue()
+    
+    //Imprimo resultado
+    sumPalabras.foreach(println)
+
+}
+
+//lanzar proceso
+procesarQuijote()
+~~~
+
+![scala](./images/003.png)

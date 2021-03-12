@@ -1,0 +1,275 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "sc.version",
+      "user": "anonymous",
+      "dateUpdated": "2021-03-12T11:58:40+0100",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres1\u001b[0m: \u001b[1m\u001b[32mString\u001b[0m = 2.4.5\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615458241002_2140187558",
+      "id": "paragraph_1615458241002_2140187558",
+      "dateCreated": "2021-03-11T11:24:01+0100",
+      "dateStarted": "2021-03-12T11:58:40+0100",
+      "dateFinished": "2021-03-12T11:59:08+0100",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:972"
+    },
+    {
+      "text": "val frases = List(\"Un día fui a comprar un ordenador\", \"Me dijeron que el mejor es el mac\", \"pero también me dijeron que es el más caro\", \"Al final decicí por comprarme el mac\", \"pagué el precio y ahora estoy muy contento\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-03-12T11:59:08+0100",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mfrases\u001b[0m: \u001b[1m\u001b[32mList[String]\u001b[0m = List(Un día fui a comprar un ordenador, Me dijeron que el mejor es el mac, pero también me dijeron que es el más caro, Al final decicí por comprarme el mac, pagué el precio y ahora estoy muy contento)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615541686776_1020190592",
+      "id": "paragraph_1615541686776_1020190592",
+      "dateCreated": "2021-03-12T10:34:46+0100",
+      "dateStarted": "2021-03-12T11:59:08+0100",
+      "dateFinished": "2021-03-12T11:59:10+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:973"
+    },
+    {
+      "text": "val texto = sc.parallelize(frases)",
+      "user": "anonymous",
+      "dateUpdated": "2021-03-12T11:59:10+0100",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mtexto\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[String]\u001b[0m = ParallelCollectionRDD[0] at parallelize at <console>:27\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615542648578_1606166194",
+      "id": "paragraph_1615542648578_1606166194",
+      "dateCreated": "2021-03-12T10:50:48+0100",
+      "dateStarted": "2021-03-12T11:59:10+0100",
+      "dateFinished": "2021-03-12T11:59:11+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:974"
+    },
+    {
+      "text": "\nval numPalabras = texto.flatMap(line => line.toLowerCase.split(\"\\\\W+\")).map(pal => (pal ,1)).reduceByKey(_+_)\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-03-12T11:59:11+0100",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615542667614_1657106666",
+      "id": "paragraph_1615542667614_1657106666",
+      "dateCreated": "2021-03-12T10:51:07+0100",
+      "dateStarted": "2021-03-12T11:59:11+0100",
+      "dateFinished": "2021-03-12T11:59:13+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:975",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mnumPalabras\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.rdd.RDD[(String, Int)]\u001b[0m = ShuffledRDD[3] at reduceByKey at <console>:26\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "numPalabras.collect().foreach(println(_))",
+      "user": "anonymous",
+      "dateUpdated": "2021-03-12T11:59:14+0100",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "(d,1)\n(ordenador,1)\n(comprar,1)\n(comprarme,1)\n(estoy,1)\n(decic,1)\n(me,2)\n(que,2)\n(mejor,1)\n(a,2)\n(y,1)\n(un,2)\n(muy,1)\n(m,1)\n(dijeron,2)\n(precio,1)\n(es,2)\n(n,1)\n(pero,1)\n(contento,1)\n(final,1)\n(fui,1)\n(s,1)\n(caro,1)\n(pagu,1)\n(por,1)\n(mac,2)\n(al,1)\n(el,5)\n(tambi,1)\n(ahora,1)\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://192.168.0.33:4040/jobs/job?id=0",
+              "$$hashKey": "object:1568"
+            }
+          ],
+          "interpreterSettingId": "spark2"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615543600846_352104658",
+      "id": "paragraph_1615543600846_352104658",
+      "dateCreated": "2021-03-12T11:06:40+0100",
+      "dateStarted": "2021-03-12T11:59:14+0100",
+      "dateFinished": "2021-03-12T11:59:15+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:976"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1615545152426_642347792",
+      "id": "paragraph_1615545152426_642347792",
+      "dateCreated": "2021-03-12T11:32:32+0100",
+      "status": "FINISHED",
+      "$$hashKey": "object:977",
+      "dateUpdated": "2021-03-12T11:59:15+0100"
+    }
+  ],
+  "name": "contar palabras v1",
+  "id": "2G3D2SRRQ",
+  "defaultInterpreterGroup": "spark2",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {
+    "isRunning": true
+  },
+  "path": "/contar palabras v1"
+}
